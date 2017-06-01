@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray_background"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/step1"
+                android:textAlignment="center"
+                android:paddingBottom="15sp"
+                android:gravity="center"
+                android:textColor="@color/smsh_blue"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="22"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="33"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/country_textedit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="25"
+                    android:background="@color/colorWhite"
+                    android:text="39"
+                    android:inputType="textVisiblePassword"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginRight="2sp"/>
+
+                <EditText
+                    android:id="@+id/phone_textedit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="75"
+                    android:background="@color/colorWhite"
+                    android:hint="@string/phone_number"
+                    android:inputType="textVisiblePassword"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/pin_textedit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="33"
+                android:alpha="0.4"
+                android:background="@color/colorWhite"
+                android:enabled="false"
+                android:hint="@string/pin"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/done_button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="33"
+                android:text="@string/send_pin"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:background="@color/smsh_blue"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60"
+            android:orientation="vertical">
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/loading_view"></include>
+
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SmshostingVerify</string>
+    <string name="step1">STEP 1\nInsert your Mobile Phone</string>
+    <string name="step2">STEP 2\nEnter pin received via sms</string>
+    <string name="send_pin">Send Pin</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pin">PIN</string>
+    <string name="done">Done!</string>
+    <string name="failed">Failed</string>
+    <string name="mobile_phone_verified">Now your phone number is verified.</string>
+    <string name="pin_not_valid">Pin entered is not valid.</string>
+    <string name="verify">Verify</string>
+    <string name="pin_sent_title">Pin Sent!</string>
+    <string name="pin_sent_description">You\'ll recive an sms soon...</string>
+    <string name="notice">Notice</string>
+    <string name="generic_error">An unexpected error occurred, try again.</string>
+
+</resources>
