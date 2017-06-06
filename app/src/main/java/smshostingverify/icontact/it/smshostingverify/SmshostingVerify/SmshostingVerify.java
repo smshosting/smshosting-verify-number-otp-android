@@ -145,13 +145,13 @@ public class SmshostingVerify {
 
             if (listener != null) {
 
-                List<JSONObject> countriesList = new ArrayList<JSONObject>();
+                List<SmshostingCountry> countriesList = new ArrayList<SmshostingCountry>();
 
                 try {
                     JSONArray countriesArray = new JSONArray(result);
 
                     for (int i = 0; i < countriesArray.length(); i++) {
-                        countriesList.add(countriesArray.getJSONObject(i));
+                        countriesList.add(new SmshostingCountry(countriesArray.getJSONObject(i)));
                     }
                 } catch (JSONException e) {
                     Log.d("SmshostingVerify-Log", "CountryCode data error");
@@ -392,7 +392,7 @@ public class SmshostingVerify {
 
     //Interfaces
     public interface SmshostingCountryCodeListener {
-        public void onResponse(List<JSONObject> codes);
+        public void onResponse(List<SmshostingCountry> codes);
     }
 
     public interface SmshostingSendPinListener {

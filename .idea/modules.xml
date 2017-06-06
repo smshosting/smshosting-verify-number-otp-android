@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SmshostingVerify.iml" filepath="$PROJECT_DIR$/SmshostingVerify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmshostingVerify-Android.iml" filepath="$PROJECT_DIR$/SmshostingVerify-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

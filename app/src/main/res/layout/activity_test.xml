@@ -45,8 +45,8 @@
                 android:layout_weight="33"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/country_textedit"
+                <Spinner
+                    android:id="@+id/country_spinner"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="1dp"
