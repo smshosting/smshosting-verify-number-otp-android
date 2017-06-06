@@ -45,7 +45,7 @@ public class TestActivity extends Activity {
         setContentView(R.layout.activity_test);
 
         //SmshostingVerify Start
-        SmshostingVerify.startWithKeyAndSecret("SMSHZ9J9TXJ8MD7DZ33G3", "K51RGU8PKJQT2P0BCLVGR4SJLF3ACHMB", this);
+        SmshostingVerify.startWithKeyAndSecret("ENTER_YOUR_KEY", "ENTER_YOUR_SECRET", this);
 
         verifyId = null;
         loadingView = (LinearLayout) findViewById(R.id.loading_view);
