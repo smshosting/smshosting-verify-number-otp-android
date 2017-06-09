@@ -10,59 +10,85 @@ How to verify a phone number:
 3. SmshostingVerify check that the PIN entered by user is the one you sent
 
 ## INSTALLATION
-### CocoaPods
+### Gradle
 Available soon
 ### Copy File
-Copy **SmshostingVerify.swift** file into your project
+Copy **SmshostingVerify.java** file into your project
 
 ## USAGE
 ### Initialization
-In your **AppDelegate.swift**
-```Swift
+Put this in **onCreate** method of your activity:
+```Java
 
-SmshostingVerify.startWithKeyAndSecret( key:"AUTH_KEY", secret:"AUTH_SECRET" )
+SmshostingVerify.startWithKeyAndSecret("ENTER_YOUR_KEY", "ENTER_YOUR_SECRET", this);
 
 ```
 You can obtain your AUTH_KEY and AUTH_SECRET by logging into your [smshosting.it](https://www.smshosting.it) account.
 ### Send Pin
-```Swift
-SmshostingVerify.sendPinWithPhoneNumberAndText(phoneNumber: completeNumber, text:"SMSHosting code ${verify_code}", sandbox:false, completion: {
-(result: [String:Any]) in
-   DispatchQueue.main.async {
-      if(result["errorCode"] == nil){
-            //Request Done
-            //Pin sent, do what you want...
-         }
-         else{
-            //Request Error
-            //Pin NOT sent, handle error...
-         }
-      }
-   })
+```Java
+SmshostingVerify.sendPinWithPhoneNumberAndText(phoneNumber, "SMSHosting code ${verify_code}", false, this, new SmshostingVerify.SmshostingSendPinListener() {
+            @Override
+            public void onResponse(JSONObject result) {
+                if (result != null) {
+                    if (result.has("errorCode")) {
+                       //Request Error
+                       //Pin NOT sent, handle error...
+                    }
+                    else {
+                       //Request Done
+                       //Pin sent, do what you want...
+                    }
+                } 
+                else {
+                    //Request Error
+                    //Pin NOT sent, handle error...
+                }
+            }
+        });
+```
+Get **verifyId** from request result
+```Java
+try {
+   verifyId = result.getString("verify_id");
+} catch (JSONException e) {
+   e.printStackTrace();
+}
 ```
 ### Verify Pin
-```Swift
-SmshostingVerify.verifyWithIdAndCode(verifyId: verifyId, verifyCode: pinTextField.text!, completion: {
-(result: [String:Any]) in
-   DispatchQueue.main.async {
-         if(result["errorCode"] == nil){
-            //Request Done
-            if(result["verify_status"] != nil){
-                  let statusString:String = result["verify_status"] as! String
-                  if(statusString == "VERIFIED"){
-                     //Verification done!                      
-                  }
-                  else{
-                     //Verification failed, entered pin is not valid
-                  }
+```Java
+SmshostingVerify.verifyPinWithIdandCode(verifyId, pinEditText.getText().toString(), this, new SmshostingVerify.SmshostingVerifyPinListener() {
+            @Override
+            public void onResponse(JSONObject result) {
+                if (result != null) {
+                    if (result.has("errorCode")) {
+                       //Request Error
+                       //Verification failed, handle error...
+                    } 
+                    else {
+                        //Request Done
+                        if (result.has("verify_status")) {
+                            String status = null;
+                            try {
+                                status = result.getString("verify_status");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            if (status != null && status.equals("VERIFIED")) {
+                               //Verification done!
+                            }
+                            else {
+                               //Verification failed, entered pin is not valid
+                            }
+                        }
+                    }
+                } 
+                else {
+                   //Request Error
+                   //Verification failed, handle error...
+                }
             }
-         }
-         else{
-            //Request Error
-            //Verification failed, handle error...
-         }
-      }
-   })
+        });
 ```
 ## MORE...
 Smshosting OTP API documentation: https://www.smshosting.it/it/docs/sms-rest-api/sms-otp
+
